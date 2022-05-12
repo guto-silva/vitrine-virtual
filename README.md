@@ -1,2 +1,2 @@
-# vritine-virtual
-Criação de uma vitrine de uma loja virtual para a prática de programação web usando Java.
+## Vitrine Virtual
+Desenvolvimento de uma vitrine para uma loja virtual usando Spring Boot, Java e versionando a base de dados usando Flyway.
