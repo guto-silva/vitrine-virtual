@@ -1,0 +1,1 @@
+ALTER TABLE produto ADD imagem_produto VARCHAR(255) NOT NULL AFTER modelo_produto;
