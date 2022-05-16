@@ -1,6 +1,7 @@
 package br.dev.guto.vitrinevirtual.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,20 @@ public class MarcaServiceImpl implements IMarcaService {
 
 	@Override
 	public List<Marca> recuperarTodasAsMarcas() {
-		return (List<Marca>)marcaDao.findAll();
+		try {
+			return (List<Marca>)marcaDao.findAll();
+		} catch(Exception e) {
+			throw new RuntimeException("Erro ao buscar marcas!");
+		}
 	}
 
 	@Override
-	public Marca recuperarMarcaPorId(Integer id) {
-		return null;
+	public Optional<Marca> recuperarMarcaPorId(Integer id) {
+		try {
+			return marcaDao.findById(id);
+		} catch (Exception e) {
+			throw new RuntimeException("Erro ao recuperar marcas por id!");
+		}
 	}
 
 	@Override

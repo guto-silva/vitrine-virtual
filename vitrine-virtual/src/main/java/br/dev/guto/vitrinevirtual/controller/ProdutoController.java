@@ -1,6 +1,7 @@
 package br.dev.guto.vitrinevirtual.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +27,8 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/produtos/{id}")
-	public ResponseEntity<Produto> recuperarProdutoPorId(@PathVariable Integer id){
-		return ResponseEntity.ok(null);
+	public ResponseEntity<Optional<Produto>> recuperarProdutoPorId(@PathVariable Integer id){
+		return ResponseEntity.ok(produtoServiceImpl.recuperarProdutoPorId(id));
 	}
 	
 	@PostMapping("/produtos")
