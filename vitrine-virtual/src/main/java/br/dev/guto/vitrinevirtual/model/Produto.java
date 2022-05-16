@@ -27,6 +27,9 @@ public class Produto {
 	@Column(name = "modelo_produto", nullable = false, length = 100)
 	private String modeloProduto;
 	
+	@Column(name = "imagem_produto", nullable = true, length = 255)
+	private String imagemProduto;
+	
 	@Column(name = "descricao_produto", length = 255)
 	private String descricaoProduto;
 	
@@ -38,11 +41,12 @@ public class Produto {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_marca")
-	@JsonIgnoreProperties(value="produto")
+	@JsonIgnoreProperties(value = "listaDeProdutos")
 	private Marca marca;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_categoria")
+	@JsonIgnoreProperties(value = "listaDeProdutos")
 	private Categoria categoria;
 	
 	public Integer getIdProduto() {
@@ -63,11 +67,19 @@ public class Produto {
 	public void setModeloProduto(String modeloProduto) {
 		this.modeloProduto = modeloProduto;
 	}
-	public String getDescricao() {
+	
+	public String getImagemProduto() {
+		return imagemProduto;
+	}
+	public void setImagemProduto(String imagemProduto) {
+		this.imagemProduto = imagemProduto;
+	}
+	
+	public String getDescricaoProduto() {
 		return descricaoProduto;
 	}
-	public void setDescricao(String descricao) {
-		this.descricaoProduto = descricao;
+	public void setDescricaoProduto(String descricaoProduto) {
+		this.descricaoProduto = descricaoProduto;
 	}
 	public Double getPrecoProduto() {
 		return precoProduto;

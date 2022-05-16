@@ -29,8 +29,8 @@ public class Marca {
 	private String imagemMarca;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "marca")
-	@JsonIgnoreProperties(value="marca")
-	private List<Produto> listaProdutos;
+	@JsonIgnoreProperties(value = "marca")
+	private List<Produto> listaDeProdutos;
 	
 	public Integer getIdMarca() {
 		return idMarca;
@@ -50,10 +50,10 @@ public class Marca {
 	public void setImagemMarca(String imagemMarca) {
 		this.imagemMarca = imagemMarca;
 	}
-	public List<Produto> getProduto() {
-		return listaProdutos;
+	public List<Produto> getListaDeProdutos() {
+		return listaDeProdutos;
 	}
-	public void setProduto(List<Produto> produto) {
-		this.listaProdutos = produto;
-	}
+	public void setListaDeProdutos(List<Produto> listaDeProdutos) {
+		this.listaDeProdutos = listaDeProdutos;
+	}	
 }
