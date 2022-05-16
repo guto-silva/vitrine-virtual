@@ -1,6 +1,7 @@
 package br.dev.guto.vitrinevirtual.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,8 @@ public class MarcaController {
 	}
 	
 	@GetMapping("/marcas/{id}")
-	public ResponseEntity<Marca> bucarMarcaPorId(@PathVariable Integer id){
-		return ResponseEntity.ok(null);
+	public ResponseEntity<Optional<Marca>> bucarMarcaPorId(@PathVariable Integer id){
+		return ResponseEntity.ok(marcaServiceImpl.recuperarMarcaPorId(id));
 	}
 	
 	@PostMapping("/marcas")

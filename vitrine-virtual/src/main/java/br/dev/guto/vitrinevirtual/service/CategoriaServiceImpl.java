@@ -1,6 +1,7 @@
 package br.dev.guto.vitrinevirtual.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,14 +21,17 @@ public class CategoriaServiceImpl implements ICategoriaService {
 		try {
 			return (List<Categoria>) categoriaDao.findAll();
 		} catch(Exception e) {
-			throw new RuntimeException("Erro ao buscar categorias");
+			throw new RuntimeException("Erro ao buscar categorias!");
 		}
 	}
 
 	@Override
-	public Categoria recuperarCategoriaPorId(Integer id) {
-		
-		return null;
+	public Optional<Categoria> recuperarCategoriaPorId(Integer id) {
+		try {
+			return categoriaDao.findById(id);
+		} catch(Exception e) {
+			throw new RuntimeException("Erro ao recuperar categoria por id!");
+		}
 	}
 
 	@Override

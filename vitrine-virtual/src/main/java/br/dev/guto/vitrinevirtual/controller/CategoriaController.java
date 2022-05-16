@@ -1,6 +1,7 @@
 package br.dev.guto.vitrinevirtual.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,8 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/categorias/{id}")
-	public ResponseEntity<Categoria> buscarCategoriaPorId(@PathVariable Integer id){
-		return ResponseEntity.ok(null);
+	public ResponseEntity<Optional<Categoria>> buscarCategoriaPorId(@PathVariable Integer id){
+		return ResponseEntity.ok(categoriaServiceImpl.recuperarCategoriaPorId(id));
 	}
 	
 	@PostMapping("/categorias")
