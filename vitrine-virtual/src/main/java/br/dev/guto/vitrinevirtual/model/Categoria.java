@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -21,7 +23,9 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_categoria", nullable = false)
 	private Integer idCategoria;
-
+	
+	@NotBlank(message = "Nome da categoria é obrigatório")
+	@Size(max = 100)
 	@Column(name = "nome_categoria", nullable = false, length = 100)
 	private String nomeCategoria;
 
@@ -29,7 +33,7 @@ public class Categoria {
 	@JsonIgnoreProperties(value = "categoria")
 	private List<Produto> listaDeProdutos;
 	 
-
+	
 	public Integer getIdCategoria(){
 		return idCategoria;
 	}
@@ -46,11 +50,13 @@ public class Categoria {
 		this.nomeCategoria = nomeCategoria;
 	}
 
-	public List<Produto> getListaDeProdutos() {
+	
+	public List<Produto> getListaDeProdutos(){
 		return listaDeProdutos;
 	}
-
-	public void setListaDeProdutos(List<Produto> listaDeProdutos) {
+	  
+	public void setListaDeProdutos(List<Produto> listaDeProdutos){
 		this.listaDeProdutos = listaDeProdutos;
 	}
+	 
 }

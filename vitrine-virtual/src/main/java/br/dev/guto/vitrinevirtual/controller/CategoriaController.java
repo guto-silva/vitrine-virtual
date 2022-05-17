@@ -3,6 +3,8 @@ package br.dev.guto.vitrinevirtual.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,12 +36,12 @@ public class CategoriaController {
 	}
 	
 	@PostMapping("/categorias")
-	public ResponseEntity<Categoria> inserirNovaCategoria(@RequestBody Categoria novaCategoria){
-		return ResponseEntity.status(201).body(novaCategoria);
+	public ResponseEntity<Categoria> inserirNovaCategoria(@Valid @RequestBody Categoria novaCategoria){
+		return ResponseEntity.status(201).body(categoriaServiceImpl.inserirNovaCategoria(novaCategoria));
 	}
 	
 	@PutMapping("/categorias")
-	public ResponseEntity<Categoria> atualizarCategoria(@RequestBody Categoria categoria) {
-		return ResponseEntity.ok(categoria);
+	public ResponseEntity<Categoria> atualizarCategoria(@Valid @RequestBody Categoria categoria) {
+		return ResponseEntity.ok(categoriaServiceImpl.atualizarCategoria(categoria));
 	}
 }

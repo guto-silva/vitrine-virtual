@@ -37,13 +37,13 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	@Override
 	public Categoria inserirNovaCategoria(Categoria novaCategoria) {
 		
-		return null;
+		return categoriaDao.save(novaCategoria);
 	}
 
 	@Override
 	public Categoria atualizarCategoria(Categoria categoria) {
 		
-		return null;
+		return categoriaDao.save(categoria);
 	}
 
 }

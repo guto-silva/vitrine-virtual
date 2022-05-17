@@ -35,12 +35,12 @@ public class ProdutoServiceImpl implements IProdutoService {
 
 	@Override
 	public Produto inserirNovoProduto(Produto novoProduto) {
-		return null;
+		return produtoDao.save(novoProduto);
 	}
 
 	@Override
 	public Produto atualizarProduto(Produto produto) {
-		return null;
+		return produtoDao.save(produto);
 	}
 
 }
