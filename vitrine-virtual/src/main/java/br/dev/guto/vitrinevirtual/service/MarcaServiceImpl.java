@@ -35,12 +35,12 @@ public class MarcaServiceImpl implements IMarcaService {
 
 	@Override
 	public Marca inserirNovaMarca(Marca novaMarca) {
-		return null;
+		return marcaDao.save(novaMarca);
 	}
 
 	@Override
 	public Marca atualizarMarca(Marca marca) {
-		return null;
+		return marcaDao.save(marca);
 	}
 	
 }

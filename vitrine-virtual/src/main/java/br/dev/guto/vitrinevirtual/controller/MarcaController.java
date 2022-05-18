@@ -3,6 +3,8 @@ package br.dev.guto.vitrinevirtual.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,13 +36,13 @@ public class MarcaController {
 	}
 	
 	@PostMapping("/marcas")
-	public ResponseEntity<Marca> inserirNovaMarca(@RequestBody Marca novaMarca){
-		return ResponseEntity.status(201).body(novaMarca);
+	public ResponseEntity<Marca> inserirNovaMarca(@Valid @RequestBody Marca novaMarca){
+		return ResponseEntity.status(201).body(marcaServiceImpl.inserirNovaMarca(novaMarca));
 	}
 	
 	@PutMapping("/marcas")
-	public ResponseEntity<Marca> atualizarMarca(@RequestBody Marca marca){
-		return ResponseEntity.ok(marca);
+	public ResponseEntity<Marca> atualizarMarca(@Valid @RequestBody Marca marca){
+		return ResponseEntity.ok(marcaServiceImpl.atualizarMarca(marca));
 	}
 	
 }
